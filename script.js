@@ -1,5 +1,5 @@
 function getHumanChoice() {
-   let choice = prompt("what is your choice ?");
+   let choice = prompt("what is your choice ?").toLowerCase();
     return choice;
 }
 
