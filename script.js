@@ -1,3 +1,10 @@
+function getHumanChoice() {
+   let choice = prompt("what is your choice ?");
+    return choice;
+}
+
+console.log(getHumanChoice())
+
 function getComputerChoice() {
     let randomNum = Math.random();
 
