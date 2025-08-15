@@ -47,5 +47,16 @@ for (let round = 1; round <= 5; round++) {
     console.log(`Your score: ${humanScore}`);
     console.log(`Computer score: ${computerScore}`);
 }
+console.log(`\nFinal Scores:`);
+console.log(`Your score: ${humanScore}`);
+console.log(`Computer score: ${computerScore}`);
+
+if (humanScore > computerScore) {
+    console.log("Congratulations! You win the game!");
+} else if (computerScore > humanScore) {
+    console.log("Sorry, you lose the game.");
+} else {
+    console.log("It's a tie overall!");
+}
 }
 playGame();
