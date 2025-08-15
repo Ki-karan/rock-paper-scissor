@@ -18,7 +18,7 @@ function getComputerChoice() {
     
 }
 
-
+function playGame( ) {
 let humanScore = 0;
 let computerScore = 0;
 
@@ -39,11 +39,13 @@ function playRound(humanChoice, ComputerChoice) {
     }
 
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(humanSelection, computerSelection));
-console.log(`Your score: ${humanScore}`);
-console.log(`Computer score: ${computerScore}`);
-
-
+for (let round = 1; round <= 5; round++) {
+    console.log(`\nRound ${round}:`);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    console.log(playRound(humanSelection, computerSelection));
+    console.log(`Your score: ${humanScore}`);
+    console.log(`Computer score: ${computerScore}`);
+}
+}
+playGame();
