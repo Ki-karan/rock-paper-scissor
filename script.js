@@ -17,8 +17,9 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, ComputerChoice) {
-    console.log(humanChoice)
-    console.log(ComputerChoice)
+    resultsDiv.innerHTML = `
+    <p>Your choice: ${humanChoice}</p>
+    <p>Computer choice: ${ComputerChoice}</p>`
    
     if (humanChoice === ComputerChoice) {
         return "It's a tie! Both chose " + humanChoice;
@@ -34,7 +35,7 @@ function playRound(humanChoice, ComputerChoice) {
 
 }
 function updateResult(message) {
-    resultsDiv.innerHTML = `
+    resultsDiv.innerHTML += `
     <p>${message}</p>
     <p>Your score: ${humanScore}</p>
     <p>Computer score: ${computerScore}</p>`
