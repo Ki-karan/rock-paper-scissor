@@ -1,9 +1,7 @@
-function getHumanChoice() {
-   let choice = prompt("what is your choice ?").toLowerCase();
-    return choice;
-}
+const resultsDiv = document.getElementById('results');
 
-
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let randomNum = Math.random();
@@ -17,10 +15,6 @@ function getComputerChoice() {
     }
     
 }
-
-function playGame( ) {
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice, ComputerChoice) {
     console.log(humanChoice)
@@ -39,15 +33,34 @@ function playRound(humanChoice, ComputerChoice) {
     }
 
 }
-for (let round = 1; round <= 5; round++) {
-    console.log(`\nRound ${round}:`);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(`Your score: ${humanScore}`);
-    console.log(`Computer score: ${computerScore}`);
+function updateResult(message) {
+    resultsDiv.innerHTML = `
+    <p>${message}</p>
+    <p>Your score: ${humanScore}</p>
+    <p>Computer score: ${computerScore}</p>`
+
+    if (humanScore === 5 || computerScore === 5) {
+    const winner = humanScore === 5 ? "Congratulations! You win the game!" : "Sorry, you lose the game.";
+    resultsDiv.innerHTML += `<h2>${winner}</h2>`;
+    }
 }
-console.log(`\nFinal Scores:`);
+
+document.getElementById("rock").addEventListener("click" , () => {
+    const result = playRound("rock", getComputerChoice());
+    updateResult(result);
+});
+
+document.getElementById("paper").addEventListener("click" , () => {
+    const result = playRound("paper", getComputerChoice());
+    updateResult(result);
+});
+
+document.getElementById("scissor").addEventListener("click" , () => {
+    const result = playRound("scissor", getComputerChoice());
+    updateResult(result);
+});
+
+/*console.log(`\nFinal Scores:`);
 console.log(`Your score: ${humanScore}`);
 console.log(`Computer score: ${computerScore}`);
 
@@ -57,6 +70,5 @@ if (humanScore > computerScore) {
     console.log("Sorry, you lose the game.");
 } else {
     console.log("It's a tie overall!");
-}
-}
-playGame();
+}*/
+
